@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useDispatch, useSelector } from "react-redux";
-import TodoList from "./listTodo/todoList";
-import TodoAdd from "./listTodo/todoAdd";
-import { fetchTodo } from "../redux/actions";
+import TodoList from "../../components/listTodo/todoList";
+import TodoAdd from "../../components/listTodo/todoAdd";
+import { fetchTodo } from "../../redux/modules/actions";
 
 const Home = () => {
   //!define

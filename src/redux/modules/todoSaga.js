@@ -9,9 +9,9 @@ import {
   fork,
 } from "redux-saga/effects";
 
-import * as types from "./actionTypes";
+import * as types from "../actionTypes";
 import { fetchTodoSuccess, fetchTodoFail } from "./actions";
-import { getAllTodo } from "../api/todoApi";
+import { getAllTodo } from "../../constants/api/todoApi";
 
 function* onLoadTodo() {
   try {
