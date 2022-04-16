@@ -11,7 +11,7 @@ import {
 
 import * as types from "./actionTypes";
 import { fetchTodoSuccess, fetchTodoFail } from "./actions";
-import { getAllTodo } from "../api/userApi";
+import { getAllTodo } from "../api/todoApi";
 
 function* onLoadTodo() {
   try {
