@@ -1,19 +1,46 @@
 import { Checkbox } from "antd";
-import { useState, useEffect } from "react";
-import TodoDetail from "./todoDetail";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { fetchTodo, filterTodo } from "../../redux/modules/actions";
 
 const TodoList = ({ todo }) => {
   //!define
+  const dispatch = useDispatch();
 
   //!state
 
   //!functions
+  const onFilterChange = (value) => {
+    dispatch(filterTodo(value));
+  };
 
+  const HandleOnClick = () => {
+    dispatch(fetchTodo());
+  };
   //!render
   return (
     <>
       <div className="todoList__container">
+        <div>
+          <div className="todoList__footer">
+            <div className="todoList__footer__item">{todo.length} items </div>
+            <div className="todoList__footer__item" onClick={HandleOnClick}>
+              All
+            </div>
+            <div
+              className="todoList__footer__item"
+              onClick={() => onFilterChange(false)}
+            >
+              Not Completed
+            </div>
+            <div
+              className="todoList__footer__item"
+              onClick={() => onFilterChange(true)}
+            >
+              Completed
+            </div>
+          </div>
+        </div>
         {todo &&
           todo.map((item, index) => (
             <div key={index} className="todoList__item">
@@ -36,7 +63,6 @@ const TodoList = ({ todo }) => {
               </Link>
             </div>
           ))}
-        <div className="todoList__footer">{todo.length} items left</div>
       </div>
     </>
   );

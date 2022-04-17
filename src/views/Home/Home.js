@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useDispatch, useSelector } from "react-redux";
-import TodoList from "../../components/listTodo/todoList";
-import TodoAdd from "../../components/listTodo/todoAdd";
+import TodoList from "../../components/Todo/todoList";
+import TodoAdd from "../../components/Todo/todoAdd";
 import { fetchTodo } from "../../redux/modules/actions";
 
 const Home = () => {
   //!define
   const dispatch = useDispatch();
   const { todo } = useSelector((state) => state.data);
- 
+
   //!state
   useEffect(() => {
     dispatch(fetchTodo());
   }, []);
+
+  
 
   //! state
   const [initialState] = useState({
@@ -35,6 +37,7 @@ const Home = () => {
           <LazyLoadImage src={initialState.imageBanner} alt="Banner" />
         </div>
       </div>
+   
     </>
   );
 };

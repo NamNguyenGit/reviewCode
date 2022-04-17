@@ -1,3 +1,5 @@
+import React from "react";
+
 const InputFields = (props) => {
   //!define
   const { type, placeholder, className } = props;
@@ -5,7 +7,14 @@ const InputFields = (props) => {
   //!render
   return (
     <div>
-      {<input type={type} placeholder={placeholder} className={className} />}
+      {
+        <input
+          {...props.field}
+          type={type}
+          placeholder={placeholder}
+          className={className}
+        />
+      }
     </div>
   );
 };

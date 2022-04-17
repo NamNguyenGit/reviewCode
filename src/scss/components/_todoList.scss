@@ -2,13 +2,14 @@
 
 .todoList__container {
     width: 50%;
-    height: 100%;
+    max-height: 100vh;
     background: $white;
     display: block;
     align-items: center;
     align-items: center;
     border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow-y: scroll;
 }
 .todoList__item {
     width: 100%;
@@ -28,9 +29,18 @@
         opacity: 0.5;
     }
     &__link {
+        cursor: pointer;
         text-decoration: none;
+        color: $black;
     }
 }
 .todoList__footer {
-    margin-left: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $grey;
+    &__item {
+        margin-left: 1.5rem;
+        cursor: pointer;
+    }
 }
