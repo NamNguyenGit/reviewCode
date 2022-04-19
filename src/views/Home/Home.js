@@ -3,26 +3,28 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useDispatch, useSelector } from "react-redux";
 import TodoList from "../../components/Todo/todoList";
 import TodoAdd from "../../components/Todo/todoAdd";
-import { fetchTodo } from "../../redux/modules/actions";
+import { fetchTodo } from "../../redux/modules/todo/actions";
+import GetTodosSelector from "../../redux/selectors/getTodosSelector";
 
 const Home = () => {
-  //!define
+  //! Define
   const dispatch = useDispatch();
-  const { todo } = useSelector((state) => state.data);
+  const todos = GetTodosSelector();
 
-  //!state
+  const { data, loading, error } = todos;
+
+  //! State
   useEffect(() => {
     dispatch(fetchTodo());
-  }, []);
+  }, [dispatch]);
 
-  
-
-  //! state
   const [initialState] = useState({
     imageBanner: "/assets/images/mountain.jpg",
   });
 
-  //! return
+  //! Functions
+
+  //! Render
   return (
     <>
       <div className="home__container">
@@ -30,14 +32,13 @@ const Home = () => {
           <TodoAdd />
         </div>
         <div className="home__todoList">
-          <TodoList todo={todo} />
+          <TodoList todo={data} />
         </div>
 
         <div className="home__image">
           <LazyLoadImage src={initialState.imageBanner} alt="Banner" />
         </div>
       </div>
-   
     </>
   );
 };

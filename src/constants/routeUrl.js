@@ -1,5 +1,6 @@
 export const RouteBase = {
   Home: "/",
   Detail: "/todoDetail/:id",
-  Create: "/addTodo/",
+  DetailWithID: (id) => `/todoDetail/${id}`,
+  Create: "/addTodo",
 };

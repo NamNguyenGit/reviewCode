@@ -2,7 +2,7 @@ import React from "react";
 
 const InputFields = (props) => {
   //!define
-  const { type, placeholder, className } = props;
+  const { type, placeholder, className, styles } = props;
 
   //!render
   return (

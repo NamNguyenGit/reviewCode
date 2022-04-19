@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Checkbox } from "antd";
+import { Link } from "react-router-dom";
+import { RouteBase } from "../../constants/routeUrl";
 
 const TodoAdd = () => {
   //! state
@@ -8,18 +9,14 @@ const TodoAdd = () => {
   });
 
   //!functions
-  const onChange = () => {
-    alert("2");
-  };
 
   //! return
   return (
     <>
       <div className="todoAdd__box">
-        <div className="todoAdd__box__check">
-          <Checkbox onChange={onChange} />
-        </div>
-        <div className="todoAdd__box__text">{initialState.borderText}</div>
+        <Link className="todoAdd__box__link" to={RouteBase.Create}>
+          <div className="todoAdd__box__text">{initialState.borderText}</div>
+        </Link>
       </div>
     </>
   );
